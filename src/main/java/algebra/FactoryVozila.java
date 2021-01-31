@@ -2,6 +2,10 @@ package algebra;
 
 public class FactoryVozila {
     public static VelikoVozilo createVelikoVozilo(VrstaVelikihVozila vrsta, String registracija, String marka, String vlasnik, TipVozila tip, double napunjenost){
+        if (vrsta == null) {
+            throw new IllegalArgumentException("Vrsta vozila mora biti predana");
+        }
+
         if (vrsta.equals(VrstaVelikihVozila.AUTOBUS)){
             VelikoVozilo autobus = new Autobus();
             autobus.setMarka(marka);
@@ -11,7 +15,7 @@ public class FactoryVozila {
             autobus.setNapunjenostVozila(napunjenost);
             return  autobus;
         }
-        else if (vrsta.equals(VrstaVelikihVozila.KAMION)){
+        else {
             VelikoVozilo kamion = new Kamion();
             kamion.setMarka(marka);
             kamion.setRegistracija(registracija);
@@ -20,11 +24,13 @@ public class FactoryVozila {
             kamion.setNapunjenostVozila(napunjenost);
             return  kamion;
         }
-
-        throw new IllegalArgumentException("Poslali ste krivi tip vozila");
     }
 
     public static MaloVozilo createMaloVozilo(VrstaMalihVozila vrsta, String registracija, String marka, String vlasnik, TipVozila tip, double napunjenost){
+        if (vrsta == null) {
+            throw new IllegalArgumentException("Vrsta vozila mora biti predana");
+        }
+
         if (vrsta.equals(VrstaMalihVozila.AUTOMOBIL)){
             MaloVozilo auto = new Automobil();
             auto.setMarka(marka);
@@ -35,7 +41,7 @@ public class FactoryVozila {
             return  auto;
         }
 
-        else if (vrsta.equals(VrstaMalihVozila.KOMBIJ)){
+        else {
             MaloVozilo kombij = new Kombij();
             kombij.setMarka(marka);
             kombij.setRegistracija(registracija);
@@ -44,6 +50,5 @@ public class FactoryVozila {
             kombij.setNapunjenostVozila(napunjenost);
             return  kombij;
         }
-        throw new IllegalArgumentException("Poslali ste krivi tip vozila");
     }
 }

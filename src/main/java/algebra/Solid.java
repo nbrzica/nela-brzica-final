@@ -19,7 +19,6 @@ public class Solid {
 
         VelikiVlak velikiVlak  = new VelikiVlak();
         velikiVlak.setBrojVozila(6);
-        velikiVlak.setVelikaVozila(vv);
 
         List<MaloVozilo>mm = new ArrayList<>();
         MaloVozilo auto1 = FactoryVozila.createMaloVozilo(VrstaMalihVozila.AUTOMOBIL,"ZG123VF", "Opel", "Ana Anic", TipVozila.ELEKTRICNO, 0.50);
@@ -34,7 +33,6 @@ public class Solid {
 
         MaliVlak maliVlak  = new MaliVlak();
         maliVlak.setBrojVozila(8);
-        maliVlak.setMalaVozila(mm);
 
         List<Vlak> v = new ArrayList<>();
         v.add(maliVlak);
